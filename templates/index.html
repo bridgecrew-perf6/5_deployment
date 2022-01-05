@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="centered">
+  <h1>Wine-o-meter API Documentation</h1>
+  <p>
+    Welcome to the Wine-o-meter API documentation 🙂
+  </p>
+  <div>
+    <h2>What is Wine-o-meter ?</h2>
+    <div>
+      <p>
+        Wine-o-meter is a application that allows wine producers to predict the quality score of their wine based on physicochemical inputs. The data-science team developed a machine learning model able to predict the global quality of a wine. The score (from 0 for very bad, to 10 for excellent) is predict from attributes of the wine. You can easely request the Wine-o-meter API endpoint.
+    <h2>API endpoint</h2>
+      <p>
+        You can access to the endpoint here (/predict).<br/>
+        This endpoint accepts POST method with JSON input data and it should return the predictions. We assume inputs will be always well formatted. 
+      </p>
+      <p>
+        Example: <code>curl -i -H "Content-Type: application/json" -X POST -d '{"year": 4}' http://localhost:5000/predict</code>
+      </p>
+      <p>
+        It returns a JSON like so:
+        <pre>
+          <code>
+  {
+    "prediction": "62962.191754786785"
+  }
+          </code>
+        </pre>
+      </p>
+      <p>
+        You can add <code>rounded</code> key with string value <code>True</code> in order to round the result:
+      </p>
+      <pre>
+        <code>
+  $ curl -i -H "Content-Type: application/json" -X POST -d '{"year": 4, "rounded": "True"}' http://localhost:5000/predict
+  {
+    "prediction": "62962.0"
+  }
+        </code>
+      </pre>
+      <h3>
+        Errors
+      </h3>
+      <p>
+        Our API will return an error with format:
+        <pre>
+          <code>
+  {
+    "code": <i>HTTP status code</i>,
+    "name": <i>name of this error</i>,
+    "description": <i>a short description</i>
+  }
+          </code>
+        </pre>
+      </p>
+      <p>
+        Identified errors:
+        <ul>
+          <li>Missing JSON</li>
+          <li>Missing key "year"</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
