@@ -32,9 +32,19 @@
         You can access to the endpoint here (/predict).<br/>
         This endpoint accepts POST method with JSON input data and it should return the predictions. We assume inputs will be always well formatted. 
       </p>
+      <h3>Method 1 : Curl</h3>
       <p>
         Example: <code>curl -i -H "Content-Type: application/json" -X POST -d '{"input": [[7.0, 0.27, 0.36, 20.7, 0.045, 45.0, 170.0, 1.001, 3.0, 0.45, 8.8]]}' https://wine-o-meter-api.herokuapp.com/predict</code>
       </p>
+
+      <h3>Method 2 : Python</h3>
+      <p>import requests<br/>
+
+        response = requests.post("https://your-url/predict", json={<br/>
+            "input": [[7.0, 0.27, 0.36, 20.7, 0.045, 45.0, 170.0, 1.001, 3.0, 0.45, 8.8]]<br/>
+        })<br/>
+        print(response.json())</p>
+        <h3>Response</h3>
       <p>
         It returns a JSON like so:
         <pre>
