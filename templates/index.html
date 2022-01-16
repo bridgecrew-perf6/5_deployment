@@ -10,6 +10,23 @@
     <div>
       <p>
         Wine-o-meter is a application that allows wine producers to predict the quality score of their wine based on physicochemical inputs. The data-science team developed a machine learning model able to predict the global quality of a wine. The score (from 0 for very bad, to 10 for excellent) is predict from attributes of the wine. You can easely request the Wine-o-meter API endpoint.
+    <h2>Model and input description</h2>
+        <p>The model takes 11 inputs : <br/>
+          - fixed acidity<br/>
+          - volatile acidity<br/>
+          - citric acid<br/>
+          - residual sugar<br/>
+          - chlorides<br/>
+          - free sulfur dioxide<br/>
+          - total sulfur dioxide<br/>
+          - density<br/>
+          - pH<br/>
+          - sulphates<br/>
+          - alcohol<br/>
+
+          For more information please check the Model_Training.ipynb file in the repo https://github.com/valskyyy/5_deployment
+
+        </p>
     <h2>API endpoint</h2>
       <p>
         You can access to the endpoint here (/predict).<br/>
@@ -19,13 +36,14 @@
         Example: <code>curl -i -H "Content-Type: application/json" -X POST -d '{"input": [[7.0, 0.27, 0.36, 20.7, 0.045, 45.0, 170.0, 1.001, 3.0, 0.45, 8.8]]}' https://wine-o-meter-api.herokuapp.com/predict</code>
       </p>
       <p>
-        It returns a JSON like so: {"the prediction is":[6]}
+        It returns a JSON like so:
         <pre>
           <code>
   {
     "prediction": "6"
   }
           </code>
+          <p>For more information please check the Test_Endpoint.ipynb file in the repo https://github.com/valskyyy/5_deployment</p>
         </pre>
       </p>
       
