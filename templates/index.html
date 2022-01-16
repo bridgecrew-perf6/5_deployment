@@ -16,10 +16,10 @@
         This endpoint accepts POST method with JSON input data and it should return the predictions. We assume inputs will be always well formatted. 
       </p>
       <p>
-        Example: <code>curl -i -H "Content-Type: application/json" -X POST -d '{"year": 4}' http://localhost:5000/predict</code>
+        Example: <code>curl -i -H "Content-Type: application/json" -X POST -d '{"input": [[7.0, 0.27, 0.36, 20.7, 0.045, 45.0, 170.0, 1.001, 3.0, 0.45, 8.8]]}' https://wine-o-meter-api.herokuapp.com/predict</code>
       </p>
       <p>
-        It returns a JSON like so:
+        It returns a JSON like so: {"the prediction is":[6]}
         <pre>
           <code>
   {
@@ -28,17 +28,7 @@
           </code>
         </pre>
       </p>
-      <p>
-        You can add <code>rounded</code> key with string value <code>True</code> in order to round the result:
-      </p>
-      <pre>
-        <code>
-  $ curl -i -H "Content-Type: application/json" -X POST -d '{"year": 4, "rounded": "True"}' http://localhost:5000/predict
-  {
-    "prediction": "62962.0"
-  }
-        </code>
-      </pre>
+      
 
     </div>
   </div>
